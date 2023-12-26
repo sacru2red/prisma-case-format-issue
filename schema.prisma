@@ -1,0 +1,10 @@
+datasource localContainer {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model sessions {
+  session_id String  @id @localContainer.VarChar(128)
+  expires    Int     @localContainer.UnsignedInt
+  data       String? @localContainer.Text
+}
